@@ -1,23 +1,22 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
+import CreateFlashcard from "./pages/CreateFlashcard";
+import MyFlashcard from "./pages/MyFlashcard";
+import Nav from "./components/Nav";
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <div>
+        <BrowserRouter>
+          <Nav />
+          <Routes>
+            <Route path={"/"} element={<CreateFlashcard />} />
+            <Route path={"/createnew"} element={<CreateFlashcard />} />
+            <Route path={"/myflashcard"} element={<MyFlashcard />} />
+          </Routes>
+        </BrowserRouter>
+      </div>
     </div>
   );
 }
